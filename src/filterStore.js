@@ -40,8 +40,10 @@ export function createFilterStore(storage) {
     },
 
     resetFilters() {
-      // 메모리 상태만 기본값으로 되돌린다.
+      // 메모리 상태를 기본값으로 되돌리는 동시에 storage 에 저장된 값도 제거한다.
+      // 이렇게 해야 새로고침 시 loadFilters()가 예전 필터를 다시 읽어오지 않는다.
       filters = { ...DEFAULT_FILTERS };
+      storage.removeItem(STORAGE_KEY);
     },
   };
 }
