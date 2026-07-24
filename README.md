@@ -8,6 +8,8 @@
 
 - `src/filterStore.js` — 필터 상태 관리 스토어 (`getFilters` / `setFilter` / `resetFilters`)
 - `src/filterStore.test.js` — 동작 및 회귀 테스트
+- `src/notificationSettings.js` — 알림 설정 스토어 (`getSettings` / `setEmailEnabled` / `isEmailEnabled`)
+- `src/notificationSettings.test.js` — 동작 및 회귀 테스트
 
 ## 스크립트
 
