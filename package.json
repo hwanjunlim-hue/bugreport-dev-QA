@@ -1,0 +1,14 @@
+{
+  "name": "task-list-app",
+  "version": "1.0.0",
+  "description": "업무 목록 페이지의 검색 필터 상태 관리 모듈 (버그 리포트 데모용)",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0"
+  },
+  "license": "MIT"
+}
