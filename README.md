@@ -8,6 +8,8 @@
 
 - `src/filterStore.js` — 필터 상태 관리 스토어 (`getFilters` / `setFilter` / `resetFilters`)
 - `src/filterStore.test.js` — 동작 및 회귀 테스트
+- `src/dashboardLoader.js` — 대시보드 카드 데이터 병렬 로딩 모듈 (`loadCards`)
+- `src/dashboardLoader.test.js` — 빈 카드 회귀 테스트
 
 ## 스크립트
 
