@@ -46,3 +46,21 @@ test("resetFilters 직후 메모리 상태가 기본값으로 초기화된다", 
 
   assert.deepEqual(store.getFilters(), { ...DEFAULT_FILTERS });
 });
+
+// 회귀 테스트: 이 버그의 핵심 시나리오.
+// 필터 초기화 후 새로고침해도 전체 목록(기본값)이 유지되어야 한다.
+test("resetFilters 후 새로고침해도 이전 필터가 다시 적용되지 않는다", () => {
+  const storage = new MemoryStorage();
+  const store = createFilterStore(storage);
+
+  // 1) 상태 필터를 '진행 중'으로 설정
+  store.setFilter("status", "in_progress");
+  // 2) 필터 초기화
+  store.resetFilters();
+
+  // 3) 브라우저 새로고침 시뮬레이션: 동일 storage 로 스토어를 새로 만든다.
+  const reloaded = createFilterStore(storage);
+
+  // 기대: 모든 조건이 제거된 기본값 상태
+  assert.deepEqual(reloaded.getFilters(), { ...DEFAULT_FILTERS });
+});
