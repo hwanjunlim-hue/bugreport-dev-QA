@@ -40,10 +40,9 @@ export function createNotificationSettingsStore(storage) {
     },
 
     // 화면의 이메일 알림 토글에 표시할 현재 상태를 반환한다.
+    // 저장된 값을 그대로 반환하므로 저장값과 토글 표시가 항상 일치한다.
     isEmailEnabled() {
-      // BUG: 저장된 값을 그대로 쓰지 않고 부정(!)해서 반환하기 때문에
-      // 저장값과 화면 토글 표시가 항상 반대가 된다.
-      return !settings.emailEnabled;
+      return settings.emailEnabled;
     },
   };
 }
